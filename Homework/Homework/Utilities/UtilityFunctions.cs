@@ -7,6 +7,7 @@ using Homework.Data;
 
 namespace Homework.Utilities
 {
+    public delegate void WriteInstructionsDelegate();
     public static class UtilityFunctions
     {
         /// <summary>
@@ -15,9 +16,21 @@ namespace Homework.Utilities
         public static void WriteInstructions()
         {
             Console.WriteLine("Instructions: ");
-            Console.WriteLine("   Enter: 1 for a list sorted by Gender amd Last Name.");
+            Console.WriteLine("   Enter: 1 for a list sorted by Gender and Last Name.");
             Console.WriteLine("   Enter: 2 for a list sorted by Birth Date.");
             Console.WriteLine("   Enter: 3 for a list sorted by Last Name (Descending).");
+            Console.WriteLine("   Enter: X to exit the program.");
+        }
+        /// <summary>
+        /// Writes the instruction set to the console for the user. (No Unit Test)
+        /// </summary>
+        public static void WriteRestInstructions()
+        {
+            Console.WriteLine("Instructions: ");
+            Console.WriteLine("   Enter: 1 for a list sorted by Gender.");
+            Console.WriteLine("   Enter: 2 for a list sorted by Birth Date.");
+            Console.WriteLine("   Enter: 3 for a list sorted by Name.");
+            Console.WriteLine("   Enter: 4 for to add a test person.");
             Console.WriteLine("   Enter: X to exit the program.");
         }
         /// <summary>
@@ -27,7 +40,7 @@ namespace Homework.Utilities
         /// and then rewrites the instructions.
         /// </summary>
         /// <param name="sortedList"></param>
-        public static void OutputListToConsole(IEnumerable<Person> sortedList, string title)
+        public static void OutputListToConsole(IEnumerable<Person> sortedList, string title, WriteInstructionsDelegate writeInstructions)
         {
             Console.Clear();
             Console.WriteLine(CenteredBufferedString(title, 118));
@@ -41,7 +54,7 @@ namespace Homework.Utilities
                     BufferedString(person.FavoriteColor, 27) + "|" +
                     BufferedString(person.DateOfBirth.ToString("MM/dd/yyyy"), 17));
             }
-            WriteInstructions();
+            writeInstructions.Invoke();
         }
         //
         // Notes on the settings for an attractive layout of the results:

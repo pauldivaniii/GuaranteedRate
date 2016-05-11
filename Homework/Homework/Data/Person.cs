@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Homework.Data
 {
     public class Person
     {
-        public Person(string firstName, string lastName, string gender, string favoriteColor, string dateofBirth)
+        [JsonConstructor]
+        public Person(string FirstName, string LastName, string Gender, string FavoriteColor, string DateOfBirth)
         {
             DateTime dateOfBirthDate;
-            if (!DateTime.TryParse(dateofBirth, out dateOfBirthDate)){
-                throw new Exception(string.Format("Invalid Date of Birth Entered: \"{0}\"", dateofBirth));
+            if (!DateTime.TryParse(DateOfBirth, out dateOfBirthDate)){
+                throw new Exception(string.Format("Invalid Date of Birth Entered: \"{0}\"", DateOfBirth));
             }
-            FirstName = firstName;
-            LastName = lastName;
-            Gender = gender;
-            FavoriteColor = favoriteColor;
-            DateOfBirth = dateOfBirthDate;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.Gender = Gender;
+            this.FavoriteColor = FavoriteColor;
+            this.DateOfBirth = dateOfBirthDate;
         }
 
         public Person(string inputLine)

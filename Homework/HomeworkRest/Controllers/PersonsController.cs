@@ -28,12 +28,24 @@ namespace HomeworkRest.Controllers
             persons.ListOfPersons.Add(new Person("Sarah", "Green", "Female", "Falu_red", "10/3/1968"));
         }
 
-        // PUT api/controller/action/value/
-        public HttpResponseMessage PutPerson(string value)
+        public HttpResponseMessage PostPerson(Person person)
         {
             try
             {
-                persons.ListOfPersons.Add(new Person(value));
+                persons.ListOfPersons.Add(person);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        public HttpResponseMessage SavePerson()
+        {
+            try
+            {
+                //persons.ListOfPersons.Add(new Person(person));
                 return Request.CreateResponse(HttpStatusCode.OK);
             }
             catch (Exception ex)

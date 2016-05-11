@@ -20,10 +20,11 @@ namespace HomeworkRest
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            config.Routes.MapHttpRoute(
-                name: "AddPerson",
-                routeTemplate: "api/persons/PutPerson/{personString}"
-            );
+            //config.Routes.MapHttpRoute(
+            //    name: "PostApi",
+            //    routeTemplate: "api/{controller}/postperson/{personstring}",
+            //    defaults: new { personstring = RouteParameter.Optional }
+            //);
         }
     }
 }

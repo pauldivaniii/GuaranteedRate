@@ -47,13 +47,13 @@ namespace Homework
                     case 'x':
                         return;
                     case '1':
-                        UtilityFunctions.OutputListToConsole(persons.OutputByGenderLastName(), "List Sorted By Gender and Last Name");
+                        UtilityFunctions.OutputListToConsole(persons.OutputByGenderLastName(), "List Sorted By Gender and Last Name", UtilityFunctions.WriteInstructions);
                         break;
                     case '2':
-                        UtilityFunctions.OutputListToConsole(persons.OutputByBirthDate(), "List Sorted By Birth Date");
+                        UtilityFunctions.OutputListToConsole(persons.OutputByBirthDate(), "List Sorted By Birth Date", UtilityFunctions.WriteInstructions);
                         break;
                     case '3':
-                        UtilityFunctions.OutputListToConsole(persons.OutputByLastNameDescending(), "List Sorted By Last Name Descending");
+                        UtilityFunctions.OutputListToConsole(persons.OutputByLastNameDescending(), "List Sorted By Last Name Descending", UtilityFunctions.WriteInstructions);
                         break;
                 }
             }
