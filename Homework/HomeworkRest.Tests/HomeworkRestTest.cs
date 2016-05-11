@@ -4,11 +4,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace HomeworkRest.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class HomeworkRestTest
     {
+        const string webApiUrl = "http://localhost:6028/";
+
         [TestMethod]
-        public void TestMethod1()
+        public void PutPersonTest()
         {
+
         }
     }
 }

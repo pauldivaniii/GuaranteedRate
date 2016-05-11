@@ -56,6 +56,13 @@ namespace Homework.Data
             orderby person.Gender ascending, person.LastName ascending select person;        
         }
 
+        public IEnumerable<Person> OutputByGender()
+        {
+            return from person in ListOfPersons
+                   orderby person.Gender ascending
+                   select person;
+        }
+
         public IEnumerable<Person> OutputByBirthDate()
         {
             return from person in ListOfPersons
@@ -68,6 +75,13 @@ namespace Homework.Data
             return from person in ListOfPersons
             orderby person.LastName descending
             select person;
+        }
+
+        public IEnumerable<Person> OutputByName()
+        {
+            return from person in ListOfPersons
+                   orderby person.LastName, person.FirstName
+                   select person;
         }
     }
 }

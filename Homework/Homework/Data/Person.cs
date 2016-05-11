@@ -8,6 +8,19 @@ namespace Homework.Data
 {
     public class Person
     {
+        public Person(string firstName, string lastName, string gender, string favoriteColor, string dateofBirth)
+        {
+            DateTime dateOfBirthDate;
+            if (!DateTime.TryParse(dateofBirth, out dateOfBirthDate)){
+                throw new Exception(string.Format("Invalid Date of Birth Entered: \"{0}\"", dateofBirth));
+            }
+            FirstName = firstName;
+            LastName = lastName;
+            Gender = gender;
+            FavoriteColor = favoriteColor;
+            DateOfBirth = dateOfBirthDate;
+        }
+
         public Person(string inputLine)
         {
             string[] tokens = inputLine.Split(new char[] { '|', ',',' ' });
