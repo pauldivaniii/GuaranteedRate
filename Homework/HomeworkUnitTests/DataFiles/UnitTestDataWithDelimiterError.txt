@@ -1,0 +1,3 @@
+James:Smith:Male:Red:6/13/1945
+John:Johnson:Male:Orange:3/24/1951
+Robert:Williams:Male:Yellow:3/6/1981

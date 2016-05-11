@@ -1,0 +1,5 @@
+James|Smith|Male|Red|6/13/1945
+John|Johnson|Male|Orange|3/24/1951
+Robert|Williams|Male|Yellow|3/6/198112/1970
+Mary|Hall|Female|Electric_lavender|9/6/2000
+Patricia|Allen|Female|Electric_lime|8/9/1963

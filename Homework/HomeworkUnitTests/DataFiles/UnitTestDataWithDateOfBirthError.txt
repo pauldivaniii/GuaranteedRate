@@ -1,0 +1,5 @@
+James|Smith|Male|Red|6/32/1945
+John|Johnson|Male|Orange|3/24/1951
+Robert|Williams|Male|Yellow|3/6/1981
+Michael|Jones|Male|Green|2/22/1947
+William|Brown|Male|Blue|13/14/1943
