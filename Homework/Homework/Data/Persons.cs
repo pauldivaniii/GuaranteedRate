@@ -16,8 +16,9 @@ namespace Homework.Data
  
         public List<Person> ListOfPersons;
 
-        public Boolean ReadFile(string filePath)
+        public Boolean ReadFile(string filePath, out string errorMessage)
         {
+            errorMessage = "";
             if (File.Exists(filePath))
             {
                 StreamReader file = null;
@@ -27,15 +28,13 @@ namespace Homework.Data
                     file = new StreamReader(filePath);
                     while ((line = file.ReadLine()) != null)
                     {
-                        try
-                        {
-                            ListOfPersons.Add(new Person(line));
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine("Error parsing input person line: " + ex.Message);
-                        }
+                        ListOfPersons.Add(new Person(line));
                     }
+                }
+                catch (Exception ex)
+                {
+                    errorMessage = ex.Message;
+                    return false;
                 }
                 finally
                 {
@@ -46,7 +45,7 @@ namespace Homework.Data
             }
             else
             {
-                Console.WriteLine("The input file: " + filePath + ", does not exist");
+                errorMessage = "The input file: " + filePath + ", does not exist";
                 return false;
             }
         }
@@ -54,7 +53,8 @@ namespace Homework.Data
         public IEnumerable<Person> OutputByGenderLastName()
         {
             return from person in ListOfPersons
-            orderby person.Gender ascending, person.LastName ascending select person;        }
+            orderby person.Gender ascending, person.LastName ascending select person;        
+        }
 
         public IEnumerable<Person> OutputByBirthDate()
         {
@@ -63,7 +63,7 @@ namespace Homework.Data
             select person;
         }
 
-        public IEnumerable<Person> OutputByLastName()
+        public IEnumerable<Person> OutputByLastNameDescending()
         {
             return from person in ListOfPersons
             orderby person.LastName descending

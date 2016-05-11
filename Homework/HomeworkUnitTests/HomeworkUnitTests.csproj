@@ -66,7 +66,9 @@
     <Content Include="DataFiles\UnitTestDataWithDelimiterError.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="DataFiles\UnitTestSortingFile.txt" />
+    <Content Include="DataFiles\UnitTestSortingFile.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -20,12 +20,22 @@ namespace Homework
         static void Main(string[] args)
         {
             Persons persons = new Persons();
+            string errorMessage;
             //
             // Read in the 3 data files in the DataFiles folder
             //
-            persons.ReadFile("DataFiles/PipeDelimitedData.txt");
-            persons.ReadFile("DataFiles/CommaDelimitedData.txt");
-            persons.ReadFile("DataFiles/SpaceDelimitedData.txt");
+            if (!persons.ReadFile("DataFiles/PipeDelimitedData.txt", out errorMessage))
+            {
+                Console.WriteLine(string.Format("An error occurred parsing file: \"{0}\": {1}", "DataFiles/PipeDelimitedData.txt", errorMessage));
+            }
+            if (!persons.ReadFile("DataFiles/CommaDelimitedData.txt", out errorMessage))
+            {
+                Console.WriteLine(string.Format("An error occurred parsing file: \"{0}\": {1}", "DataFiles/CommaDelimitedData.txt", errorMessage));
+            }
+            if (!persons.ReadFile("DataFiles/SpaceDelimitedData.txt", out errorMessage))
+            {
+                Console.WriteLine(string.Format("An error occurred parsing file: \"{0}\": {1}", "DataFiles/SpaceDelimitedData.txt", errorMessage));
+            }
 
             UtilityFunctions.WriteInstructions();
             while (1 == 1)
@@ -43,7 +53,7 @@ namespace Homework
                         UtilityFunctions.OutputListToConsole(persons.OutputByBirthDate(), "List Sorted By Birth Date");
                         break;
                     case '3':
-                        UtilityFunctions.OutputListToConsole(persons.OutputByLastName(), "List Sorted By Last Name Descending");
+                        UtilityFunctions.OutputListToConsole(persons.OutputByLastNameDescending(), "List Sorted By Last Name Descending");
                         break;
                 }
             }
